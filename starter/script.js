@@ -78,6 +78,7 @@ function that receives another function
 function that return new function
 */
 //-----First-Class and Higher-Order Functions
+/*
 //!=========
 //------ Functions Accepting Callback Functions
 const oneWord = function (str) {
@@ -107,5 +108,10 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+*/
 //------ end Functions Accepting Callback Functions
+//!=========
+//-----Functions Returning Functions
+
+//-----end Functions Returning Functions
 //!=========
