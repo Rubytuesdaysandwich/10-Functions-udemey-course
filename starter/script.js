@@ -25,6 +25,7 @@ createBooking('LG123', undefined, 1000);
 //----- default parameters
 //!=========
 //----- How Passing Arguments Works: Value vs. Reference
+/*
 const flight = 'LH234';
 const jonas = {
   name: 'Jonas Schmedtmann',
@@ -56,6 +57,7 @@ checkIn(flight, jonas);
 //passing by value vs reference
 //javascript does not have pass by reference
 //javascript only has values
+*/
 //----- end How Passing Arguments Works: Value vs. Reference
 //!=========
 //-----First-Class and Higher-Order Functions
@@ -91,8 +93,15 @@ const transformer = function (str, fn) {
   console.log(`Transformed string: ${fn(str)}`);
   console.log(`Transformed by: ${fn.name}`);
 };
+//functions with a function inside
+//oneWord is callback function we don't call them ourselves javascript calls them later ${fn(str)}
+//upperFirstWord is callback function
 transformer('Javascript is the best!', upperFirstWord);
-
 transformer('Javascript is the best!', oneWord);
+
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5);
 //------ end Functions Accepting Callback Functions
 //!=========
