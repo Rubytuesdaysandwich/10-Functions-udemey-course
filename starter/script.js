@@ -98,10 +98,14 @@ const transformer = function (str, fn) {
 //upperFirstWord is callback function
 transformer('Javascript is the best!', upperFirstWord);
 transformer('Javascript is the best!', oneWord);
-
+//js uses callback functions all the time
+//functions allow us to reuse code and keep us from creating bugs and easier to update later
+//more importantly is abstraction
 const high5 = function () {
   console.log('👋');
 };
 document.body.addEventListener('click', high5);
+
+['Jonas', 'Martha', 'Adam'].forEach(high5);
 //------ end Functions Accepting Callback Functions
 //!=========
