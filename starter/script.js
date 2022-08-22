@@ -132,6 +132,7 @@ greetArr('hi')('jonas');
 //-----end Functions Returning Functions
 //!=========
 //-----The call and apply Methods
+/*
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -179,9 +180,10 @@ const flightData = [583, 'George Cooper'];
 book.apply(swiss, flightData);
 console.log(swiss);
 book.call(swiss, ...flightData);
-
+*/
 //-----end The call and apply Methods
 //!=========
+/*
 // ----The bind Method
 //book.call(eurowings, 23, 'Sarah Williams');
 const bookEW = book.bind(eurowings);
@@ -222,6 +224,7 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+*/
 //----end The bind Method
 //!===========
 //-----challenge #1
@@ -261,14 +264,25 @@ const poll = {
   options: ['0: JavaScript', '1:Pythons', '2:Rust', '3: C++'],
   //this generates [0,0,0,0]. More in the next section 😊
   answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    //get answer
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+      )
+    );
+    //register answer
+    console.log(answer);
+    //shot circuiting
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+  },
 };
-prompt(
-  'What is your favourite programming language?',
-  '0: JavaScript',
-  '1: Python',
-  '2: Rust',
-  '3: C++'
-);
 
+//poll.registerNewAnswer();
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 //-----end challenge #1
 //!============
