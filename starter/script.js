@@ -314,12 +314,42 @@ const runOnce = function () {
 runOnce();
 
 //(IIFE)Immediately Invoked Function Expressions
-//they are wrraped in ( );
+//they are wrapped in ( );
 //they are then immediately invoked like this ();
+// hide and protect variables using the scop chain
+//functions can see global variables but global cannot see variables defined in the function
+//this makes them useful for data encapsulation to protect data from accidentally from being changed
 (function () {
   console.log('This will never run again');
+  const isPrivate = 23;
 })();
+
+// console.log(isPrivate);
 //arrow function work as well
 //need to be wrapped in parenthesis
 (() => console.log('This will ALSO never run again'))(); //immediately invoked here
+
+{
+  //using brackets we can create a new scope with out the function
+  const isPrivate = 23; //is not accessible to the global scope
+  var notPrivate = 46; //is accessible to the global scope
+} //(IIFE)is still the preferred method although it is not built into javascript but it is a method that developers made to protect data
+console.log(notPrivate);
+// console.log(isPrivate);
 //-----end Immediately Invoked Function Expressions (IIFE)
+//!===================
+//-----closures
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount}passengers`);
+  };
+};
+const booker = secureBooking();
+booker();
+booker();
+booker();
+//a function has access to the variable environment (VE) of the execution context in which it was created
+// closure : VE attached to the function, exactly  as it was at the time and place the was created
+//-----closures
