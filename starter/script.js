@@ -339,6 +339,7 @@ console.log(notPrivate);
 //-----end Immediately Invoked Function Expressions (IIFE)
 //!===================
 //-----closures
+/*
 const secureBooking = function () {
   let passengerCount = 0;
   return function () {
@@ -350,6 +351,86 @@ const booker = secureBooking();
 booker();
 booker();
 booker();
+
+console.dir(booker);
+*/
+//closures are made automatically
+//a closure is like a backpack that a function carries around wherever it goes. This backpack has all the variables that were present in the environment where the function was created
+//a closure makes sure that a function does not loose connection to variables that existed at the function's birth place;
+// a closure gives a function access to all the variable of its parent function, even after that parent funtion has returned. THe function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+//a closure is the closed-over variable environment of the execution context in which was created, even after that execution context is gone;
 //a function has access to the variable environment (VE) of the execution context in which it was created
 // closure : VE attached to the function, exactly  as it was at the time and place the was created
-//-----closures
+//----- end closures
+//!============
+//----- More Closure Examples
+
+//example 1
+let f;
+const g = function () {
+  const a = 23;
+  // const b = 42;//this would also be put into the closure//once it reads through the scope chain it puts these variables into storage to use later
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f();
+console.dir(f);
+//reassigned by h so f will be different
+h();
+f();
+console.dir(f);
+
+// example 2 closure
+const boardPassengers = function (n, wait) {
+  //if this pergroup is removed the
+  //perGroup in the global
+  //scope will take priority because
+  //then there is no closure
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+  console.log(`Will start boarding in ${wait}seconds`);
+};
+//closures take priority of scope chain
+//otherwise the perGroup variable here would be used
+const perGroup = 1000;
+boardPassengers(180, 3);
+// setTimeout(function () {
+//   console.log('TIMER');
+// }, 1000);
+//----- end More Closure Examples
+//!==================================
+//-----Coding Challenge #2
+
+/* 
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the BODY element is clicked. Do NOT select the h1 element again!
+
+And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
+
+GOOD LUCK 😀
+*/
+
+/*
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+*/
+//-----end Coding Challenge #2
