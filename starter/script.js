@@ -425,7 +425,7 @@ GOOD LUCK 😀
 */
 
 (function () {
-  //this is a (iife) immediately invoked functions
+  //this is a (IIFE) immediately invoked functions
   //the document .querySelector is selecting the 'h1' tag
   //the header variable that was assigned to h1 is being used to change the color style to red
   //this will only run one time
@@ -435,8 +435,8 @@ GOOD LUCK 😀
   /*we are then selecting the body to detect the 
   the click and the header is in 
   the parent function so it get passed
-   to the parent function where the color
-    get changed to blue*/
+  to the parent function where the color
+  get changed to blue*/
   //the function is then able to go into the backpack and grab the assigned header variable
   //the header variable since it is a closure it will take prescience over scope variables in the global
   document.querySelector('body').addEventListener('click', function () {
