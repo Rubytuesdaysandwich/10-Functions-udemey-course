@@ -364,7 +364,7 @@ console.dir(booker);
 //----- end closures
 //!============
 //----- More Closure Examples
-
+/*
 //example 1
 let f;
 const g = function () {
@@ -391,7 +391,7 @@ console.dir(f);
 
 // example 2 closure
 const boardPassengers = function (n, wait) {
-  //if this pergroup is removed the
+  //if this perGroup is removed the
   //perGroup in the global
   //scope will take priority because
   //then there is no closure
@@ -406,6 +406,7 @@ const boardPassengers = function (n, wait) {
 //otherwise the perGroup variable here would be used
 const perGroup = 1000;
 boardPassengers(180, 3);
+*/
 // setTimeout(function () {
 //   console.log('TIMER');
 // }, 1000);
@@ -423,14 +424,24 @@ And now explain to YOURSELF (or someone around you) WHY this worked! Take all th
 GOOD LUCK 😀
 */
 
-/*
 (function () {
+  //this is a (iife) immediately invoked functions
+  //the document .querySelector is selecting the 'h1' tag
+  //the header variable that was assigned to h1 is being used to change the color style to red
+  //this will only run one time
   const header = document.querySelector('h1');
   header.style.color = 'red';
-
+  //the function is being passed into the addEventListener listener function as a callback function
+  /*we are then selecting the body to detect the 
+  the click and the header is in 
+  the parent function so it get passed
+   to the parent function where the color
+    get changed to blue*/
+  //the function is then able to go into the backpack and grab the assigned header variable
+  //the header variable since it is a closure it will take prescience over scope variables in the global
   document.querySelector('body').addEventListener('click', function () {
     header.style.color = 'blue';
   });
 })();
-*/
+
 //-----end Coding Challenge #2
