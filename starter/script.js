@@ -159,6 +159,7 @@ const book = lufthansa.book; //no longer a method now a method
 //book(23,'Sarah Williams');
 
 //.call method
+// you can write a method once and then inherit it in another object, without having to rewrite the method for…
 book.call(eurowings, 23, 'Sarah Williams');
 console.log(eurowings);
 book.call(lufthansa, 239, 'Mary Cooper');
@@ -181,3 +182,6 @@ book.call(swiss, ...flightData);
 
 //-----end The call and apply Methods
 //!=========
+// ----The bind Method
+
+//----end The bind Method
