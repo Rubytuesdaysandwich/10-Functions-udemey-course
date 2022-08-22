@@ -258,7 +258,8 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
 */
-
+//-------------------------solution
+/*
 const poll = {
   question: 'What is you favorite programming language?',
   options: ['0: JavaScript', '1:Pythons', '2:Rust', '3: C++'],
@@ -273,13 +274,15 @@ const poll = {
     );
     //register answer
     console.log(answer);
-    //shot circuiting
+    //short circuiting
+    //if answer equals number and answer < less than answers lngth & answers answer add 1 to the value of th array for the optiion the person chooses from the prompt
     typeof answer === 'number' &&
       answer < this.answers.length &&
       this.answers[answer]++;
-    console.log(this.answers);
-    this.displayResults();
-    this.displayResults('string');
+
+    console.log(this.answers); //print out the answers array
+    this.displayResults(); //if type array returns to console (4) [0, 0, 1, 0]
+    this.displayResults('string'); // if type string returns a string: Poll results are 0, 1, 0, 0
   },
   displayResults(type = 'array') {
     if (type === 'array') {
@@ -297,5 +300,13 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// Calls a method of an object, substituting another object for the current object.
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string'); //call creates new array for the answers property in the poll object
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string'); //call creates new array for the answers property in the poll object
+*/
 //-----end challenge #1
 //!============
+//-----Immediately Invoked Function Expressions (IIFE)
+//runs once and disappears needed for async await
+
+//-----end Immediately Invoked Function Expressions (IIFE)
