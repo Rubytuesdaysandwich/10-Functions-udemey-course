@@ -308,5 +308,18 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string'); //call crea
 //!============
 //-----Immediately Invoked Function Expressions (IIFE)
 //runs once and disappears needed for async await
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
 
+//(IIFE)Immediately Invoked Function Expressions
+//they are wrraped in ( );
+//they are then immediately invoked like this ();
+(function () {
+  console.log('This will never run again');
+})();
+//arrow function work as well
+//need to be wrapped in parenthesis
+(() => console.log('This will ALSO never run again'))(); //immediately invoked here
 //-----end Immediately Invoked Function Expressions (IIFE)
